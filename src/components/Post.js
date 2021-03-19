@@ -11,7 +11,7 @@ export default class Post extends Component{
                     <p className="card-text">{post.body}</p>
                     <p className="card-text">{post.user.name}</p>
                     <Link to={`/articles/${post.id}`} className="btn btn-primary">Détails</Link>
-                    <Link to={`/articles/${post.id}/modifier`} className="btn btn-warning">Modifier</Link>
+                    <Link to={`/articles/${post.id}/modifier`} className="btn btn-warning mx-2">Modifier</Link>
                 </div>
         </div>
     }

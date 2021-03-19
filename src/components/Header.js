@@ -5,8 +5,8 @@ export default class Header extends Component{
 
     render() {
         return <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
-                <a className="navbar-brand" href="#">React Blog</a>
+            <div className="container">
+                <Link className="navbar-brand" to="/">React TodoList</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"/>
@@ -14,13 +14,16 @@ export default class Header extends Component{
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link to="/" className="nav-link">Home</Link>
+                            <Link to="/" className="nav-link">Accueil</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/articles" className="nav-link">Articles</Link>
+                            <Link to="/taches" className="nav-link">Liste des tâches</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/utilisateurs" className="nav-link">Utilisateurs</Link>
+                            <Link to="/articles" className="nav-link">Liste des posts</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/utilisateurs" className="nav-link">Liste des users</Link>
                         </li>
                     </ul>
                 </div>
