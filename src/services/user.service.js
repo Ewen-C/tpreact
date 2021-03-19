@@ -12,9 +12,9 @@ export class UserService{
         let users = response.data;
 
         for (let user of users) {
-            let responsePost = await axios.get(`${baseUrl}/users/${user.id}/posts`);
-            let posts = responsePost.data;
-            user.nbrPosts = posts.length;
+            let responseTask = await axios.get(`${baseUrl}/users/${user.id}/todos`);
+            let tasks = responseTask.data;
+            user.nbrTasks = tasks.length;
         }
         return users;
     }
@@ -25,7 +25,20 @@ export class UserService{
      * @returns {Promise<AxiosResponse<any>>}
      */
     static async details(id){
-        return await axios.get(`${baseUrl}/users/${id}`);
+        let response = await axios.get(`${baseUrl}/users/${id}`);
+
+        let responseTask = await axios.get(`${baseUrl}/users/${id}/todos`);
+        let tasks = responseTask.data;
+        response.data.nbrTasks = tasks.length;
+
+        console.log(response);
+
+        for (let task of tasks) {
+            if(task.completed === true)
+                response.data.taskCompleted += 1;
+        }
+
+        return response;
     }
 
     /**

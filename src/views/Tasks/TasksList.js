@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import TaskService from "../../services/task.service";
 import Task from "../../components/Task";
 import {Link} from "react-router-dom";
-import {UserService} from "../../services/user.service";
 
 export default class TasksList extends Component{
 

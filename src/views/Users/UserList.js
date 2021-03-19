@@ -21,13 +21,27 @@ export default class UserList extends Component{
         return <div className="container">
             <h1>Liste des utilisateurs</h1>
 
-            <div className="row">
-                {users.map(user => {
-                    return <div className="col-md-4">
-                        <User user={user}/>
-                    </div>
-                })}
-            </div>
+            <table className="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Site web</th>
+                    <th>Nombre de tâches</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                    {users.map(user => {
+                        return <User user={user}/>
+                    })}
+
+                </tbody>
+            </table>
+
         </div>
     }
 }

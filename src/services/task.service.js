@@ -35,7 +35,7 @@ export default class TaskService{
      * @returns {Promise<AxiosResponse<any>>}
      */
     static async create(data){
-        return await axios.task(`${baseUrl}/todos`, data);
+        return await axios.post(`${baseUrl}/todos`, data);
     }
 
     /**

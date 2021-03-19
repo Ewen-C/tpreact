@@ -24,7 +24,7 @@ export default class TaskUpdate extends Component{
 
     handleChange(e){
         this.setState({
-            [e.target.id]: e.target.value
+            [e.target.name]: e.target.value
         });
     }
 
@@ -48,21 +48,25 @@ export default class TaskUpdate extends Component{
             <h2>{task.title}</h2>
 
             <form className="mt-3" onSubmit={(e) => this.handleSubmit(e)}>
+
                 <div className="form-group">
                     <label>Intitulé de la tâche</label>
-                    <input type="text" className="form-control" id="title" required value={title} onChange={(e) => this.handleChange(e)}/>
+                    <input type="text" className="form-control" name="title" required 
+                        value={title} onChange={(e) => this.handleChange(e)}/>
                 </div>
-                <div className="form-group">
-                    <label>État de la tâche</label>
-                    <div class="form-check">
-                         <label class="form-check-label"></label>
-                         <input type="radio" class="form-check-input" required onChange={(e) => this.handleChange(e)}/>En cours
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label"></label>
-                        <input type="radio" class="form-check-input" required onChange={(e) => this.handleChange(e)}/>Terminée
-                    </div>
+
+                <p>État de la tâche :</p>
+                <div className="form-check">
+                   <input className="form-check-input" type="radio" name="completed" 
+                   value={completed} required onChange={(event) => this.handleChange(event)}/>
+                   <label className="form-check-label">En cours</label>
                 </div>
+                <div className="form-check">
+                   <input className="form-check-input" type="radio" name="completed" 
+                   value={completed} required onChange={(event) => this.handleChange(event)}/>
+                   <label className="form-check-label">Terminée</label>
+                </div>
+
                 <button type="submit" className="btn btn-primary mt-3">Modifier</button>
             </form>
 

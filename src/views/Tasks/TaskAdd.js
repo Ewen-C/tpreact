@@ -7,27 +7,27 @@ export default class TaskAdd extends Component{
         super(props);
         this.state = {
             title: null,
-            body: null
+            completed: null,
         }
     }
 
     handleChange(e){
         this.setState({
-            [e.target.id]: e.target.value // Modification du state
+            [e.target.name]: e.target.value // Modification du state
         });
     }
 
     async handleSubmit(e){
         e.preventDefault();
-        let {title, body} = this.state;
+        let {title, body, completed} = this.state;
 
         let data = {
             title: title,
-            body: body,
+            completed: completed,
             userId: 2 // ID fixe
         }
 
-        alert("title : " + data.title + "\nbody : " + data.body + "\nuserId : " + data.userId);
+        alert("title : " + data.title + "\ncompleted : " + data.completed + "\nuserId : " + data.userId);
 
         await TaskService.create(data);
         this.props.history.push('/taches'); // Retour après ajout
@@ -38,19 +38,29 @@ export default class TaskAdd extends Component{
             <h1>Ajouter une tâche</h1>
 
             <form onSubmit={(event) => this.handleSubmit(event)}>
-                <div className="form-group mt-3">
-                    <label>Titre</label>
-                    <input type="text" id="title" className="form-control" required
-                        onChange={(event) => this.handleChange(event)}/>
-                </div>
+
                 <div className="form-group">
-                    <label>Contenu</label>
-                    <textarea id="body" rows="5" className="form-control" required
+                    <label>Intitulé de la tâche</label>
+                    <textarea name="title" rows="3" className="form-control" required
                         onChange={(event) => this.handleChange(event)}/>
                 </div>
+
+                <p>État de la tâche :</p>
+                <div className="form-check">
+                   <input className="form-check-input" type="radio" name="completed" 
+                   value="0" required onChange={(event) => this.handleChange(event)}/>
+                   <label className="form-check-label">En cours</label>
+                </div>
+                <div className="form-check">
+                   <input className="form-check-input" type="radio" name="completed" 
+                   value="1" required onChange={(event) => this.handleChange(event)}/>
+                   <label className="form-check-label">Terminée</label>
+                </div>
+
                 <div className="form-group">
                     <label>(ID User : 2)</label>
                 </div>
+                
                 <button type="submit" className="btn btn-primary mt-3">Ajouter</button>
             </form>
         </div>

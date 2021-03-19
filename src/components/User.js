@@ -5,13 +5,16 @@ export default class User extends Component{
 
     render() {
         let {user} = this.props;
-        return <div className="card">
-            <div className="card-body">
-                <h5 className="card-title">{user.name}</h5>
-                <p className="card-text">{user.email}</p>
-                <Link to={`/utilisateurs/${user.id}`} className="btn btn-primary">Détails</Link>
-                <Link to={`/utilisateurs/${user.id}/modifier`} className="btn btn-warning">Modifier</Link>
-            </div>
-        </div>
+        return <tr>
+            <td>{user.name} ({user.username})</td>
+            <td>{user.email}</td>
+            <td>{user.phone}</td>
+            <td>{user.website}</td>
+            <td>{user.nbrTasks}</td>
+            //<td>{user.taskCompleted}</td>
+            <td><Link to={`/utilisateurs/${user.id}`} className="btn btn-primary">Détails</Link></td>
+            <td><Link to={`/utilisateurs/${user.id}/modifier`} className="btn btn-warning">Modifier</Link></td>
+        </tr>
+
     }
 }
