@@ -20,9 +20,6 @@ export default class Header extends Component{
                             <Link to="/taches" className="nav-link">Liste des tâches</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/articles" className="nav-link">Liste des posts</Link>
-                        </li>
-                        <li className="nav-item">
                             <Link to="/utilisateurs" className="nav-link">Liste des users</Link>
                         </li>
                     </ul>

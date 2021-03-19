@@ -11,11 +11,6 @@ import TaskAdd from "./views/Tasks/TaskAdd";
 import TaskDetails from "./views/Tasks/TaskDetails";
 import TaskUpdate from "./views/Tasks/TaskUpdate";
 
-import PostsList from "./views/Posts/PostsList";
-import PostAdd from "./views/Posts/PostAdd";
-import PostDetails from "./views/Posts/PostDetails";
-import PostUpdate from "./views/Posts/PostUpdate";
-
 import UserList from "./views/Users/UserList";
 import UserDetails from "./views/Users/UserDetails";
 import UserAdd from "./views/Users/UserAdd";
@@ -33,11 +28,6 @@ export default class App extends Component{
                 <Route exact path="/taches/ajout" component={TaskAdd} />
                 <Route exact path="/taches/:id" component={TaskDetails} />
                 <Route exact path="/taches/:id/modifier" component={TaskUpdate} />
-
-                <Route exact path="/articles" component={PostsList} />
-                <Route exact path="/articles/ajouter" component={PostAdd} />
-                <Route exact path="/articles/:id" component={PostDetails} />
-                <Route exact path="/articles/:id/modifier" component={PostUpdate} />
 
                 <Route exact path="/utilisateurs" component={UserList}/>
                 <Route exact path="/utilisateurs/ajouter" component={UserAdd}/>
